@@ -14,7 +14,22 @@ If there is a platform you would like to see in addition to composer for depende
 Coming soon
 
 ### Manual Install
-Coming soon
+
+Download the zip, or use git submodules to pull the SDK into your project. 
+
+Now just require `iTransactSDK.php` on whichever class(es) you need to use it on. 
+
+Here is an example implementation:
+```php
+require_once('./iTransactSDK.php');
+...
+class Foo(){
+    private $sdk;
+    private function Bar(){
+        $sdk = new iTransactSDK();
+    }
+}
+```
 
 ## Testing
 Coming soon

@@ -1,15 +1,15 @@
 {
   "name": "itransact/itransact-sdk-php",
   "type": "library",
-  "keywords": ["log","logging"],
-  "homepage": "https://github.com/Seldaek/monolog",
+  "keywords": ["itransact","payroc","payments","merchants","transaction","integration","credit card","check","ach"],
+  "homepage": "https://github.com/itransact/itransact_sdk-php",
   "license": "MIT",
   "description": "This is a simple wrapper for authenticating with iTransact's php sdk",
   "authors": [
     {
-      "name": "Jordi Boggiano",
-      "email": "j.boggiano@seld.be",
-      "homepage": "http://seld.be",
+      "name": "Preston Farr",
+      "email": "p.farr@itransact.com",
+      "homepage": "https://www.itransact.com",
       "role": "Developer"
     }
   ],
@@ -18,7 +18,7 @@
   },
   "autoload": {
     "psr-0": {
-      "iTransactSDK": "src"
+      "iTransact\\iTransactSDK": "src"
     }
   }
 }

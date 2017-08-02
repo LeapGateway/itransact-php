@@ -1,0 +1,14 @@
+<?php
+namespace iTransact\iTransactSDK;
+/**
+ * An helper class intended to make integrating more streamlined via composer, or simply importing the class.
+ *
+ * See: http://developers.itransact.com/api-reference/
+ */
+class Authentication
+{
+    public function getAuthToken()
+    {
+        return 'Hey there this is in the process of being developed!';
+    }
+}

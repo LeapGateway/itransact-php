@@ -23,11 +23,23 @@ Now just require `iTransactSDK.php` on whichever class(es) you need to use it on
 Here is an example implementation:
 ```php
 require_once('./iTransactSDK.php');
+
+use iTransact\iTransactSDK\CardPayload;
+use iTransact\iTransactSDK\iTTransaction;
 ...
 class Foo(){
-    private $sdk;
-    private function Bar(){
-        $sdk = new iTransactSDK();
+    private function Bar(){                
+        // Put these somewhere safe, like in an environment variable
+        $apiUsername = 'InsertApiUsername';
+        $apiKey = 'InsertApiKeyHere';
+        
+        // Create new instances of the SDK, and if you would like you can also use the payload.
+        $sdk = new iTTransaction();
+        $payload = new CardPayload('Ol Greg',5454545454545454,123,12,2020);
+        $transactionAmount = 1234;
+        
+        // POST request to server
+        $postResult = $sdk->postCardTransaction($transactionAmount,$apiUsername,$apiKey,$payload);
     }
 }
 ```

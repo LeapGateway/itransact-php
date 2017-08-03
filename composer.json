@@ -27,7 +27,7 @@
   },
   "autoload": {
     "psr-4": {
-      "iTransact\\": "src/"
+      "iTransact\\": "src/iTransactJSON/"
     }
   }
 }

@@ -14,7 +14,14 @@ More details at [iTransact Developer API](http://developers.itransact.com/api-re
 If there is a platform you would like to see in addition to composer for dependency management, let us know.
 
 ### Composer Install
-Coming soon
+Run the following command at the root fo your project
+
+```bash
+composer require itransact/itransact-sdk-php
+```
+
+Packagist Link - [iTransact SDK on Composer](https://packagist.org/packages/itransact/itransact-sdk-php)
+
 
 ### Manual Install
 
@@ -22,13 +29,22 @@ Download the zip, or use git submodules to pull the SDK into your project.
 
 Now just require `iTransactSDK.php` on whichever class(es) you need to use it on. 
 
-Here is an example implementation:
-```php
-require_once('./iTransactSDK.php');
 
-use iTransact\iTransactSDK\CardPayload;
-use iTransact\iTransactSDK\iTTransaction;
+### Import Example
+
+Here is an example implementation:
+
+#### With Composer
+```php
+# Wherever you are adding autoloader it should pick up the class.
+$loader = require_once __DIR__ . '/vendor/autoload.php';
+
 ...
+
+# Now that its been automatically loaded, you can just call it inline or via use 
+use iTransact\iTransactSDK\iTTransaction;
+use iTransact\iTransactSDK\CardPayload;
+
 class Foo(){
     private function Bar(){                
         // Put these somewhere safe, like in an environment variable
@@ -37,7 +53,7 @@ class Foo(){
         
         // Create new instances of the SDK, and if you would like you can also use the payload.
         $sdk = new iTTransaction();
-        $payload = new CardPayload('Ol Greg',5454545454545454,123,12,2020);
+        $payload = new CardPayload('Greg','4111111111111111','123','11','2020');
         $transactionAmount = 1234;
         
         // POST request to server
@@ -46,6 +62,31 @@ class Foo(){
 }
 ```
 
+#### Without Composer
+```php
+require_once('./iTransactSDK.php');
+
+use iTransact\iTransactSDK\CardPayload;
+use iTransact\iTransactSDK\iTTransaction;
+
+class Foo(){
+    private function Bar(){               
+        // Put these somewhere safe, like in an environment variable
+        $apiUsername = 'InsertApiUsername';
+        $apiKey = 'InsertApiKeyHere';
+        
+        // Create new instances of the SDK, and if you would like you can also use the payload.
+        $sdk = new iTTransaction();
+        $payload = new CardPayload('Greg','4111111111111111','123','11','2020');
+        $transactionAmount = 1234;
+        
+        // POST request to server
+        $postResult = $sdk->postCardTransaction($transactionAmount,$apiUsername,$apiKey,$payload);
+    }
+}
+```
+
+#### Example Response
 Example successful `$postResult` will return a 201 with the following fields / value types:
 ```json
 {
@@ -79,6 +120,14 @@ Example successful `$postResult` will return a 201 with the following fields / v
 }
 ```
 
+Check out the files in `src/iTransactJSON/Examples` for other ideas for implementation.
 
 ## Testing
-Coming soon
+
+Unit tests on this project are run using PHPUnit. You can find each test in the `src/iTransactJSON/Tests` folder 
+
+## Legacy XML API
+
+We have also included some examples for your convenience of the old legacy xml api which is now deprecated. Please use the JSON api moving forward.
+
+You can find these files in `src/iTransactXML/Examples`  

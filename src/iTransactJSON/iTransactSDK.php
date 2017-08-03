@@ -35,10 +35,10 @@ namespace iTransact\iTransactSDK {
         public static function generateHeaderArray($apiUsername, $apiKey, $payload)
         {
             $payloadSignature = self::signPayload($apiKey, $payload);
-
+            $encodedUsername = base64_encode($apiUsername);
             return array(
                 'Content-Type: application/json',
-                'Authorization: ' . $apiUsername . ':' . $payloadSignature
+                'Authorization: ' . $encodedUsername . ':' . $payloadSignature
             );
         }
 

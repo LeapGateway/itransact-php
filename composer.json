@@ -4,7 +4,7 @@
   "keywords": ["itransact","payroc","payments","merchants","transaction","integration","credit card","check","ach"],
   "homepage": "https://github.com/itransact/itransact_sdk-php",
   "license": "MIT",
-  "description": "This is a simple wrapper for authenticating with iTransact's php sdk",
+  "description": "This is an SDK for authenticating with iTransact's API",
   "authors": [
     {
       "name": "Preston Farr",
@@ -13,13 +13,21 @@
       "role": "Developer"
     }
   ],
+  "support": {
+    "email": "tix@itransact.com"
+  },
+  "feature-branches": [
+    "master",
+    "development"
+  ],
   "require": {
     "php": ">=5.3.0",
+    "lib/curl": "0.2",
     "phpunit/phpunit": "4.8.36"
   },
   "autoload": {
-    "psr-0": {
-      "iTransact\\iTransactSDK": "src/"
+    "psr-4": {
+      "iTransact\\": "src/"
     }
   }
 }

@@ -67,23 +67,24 @@ namespace iTransact\iTransactSDK {
          * @param integer $transactionAmount Example: $15.00 should be 1500
          * @param string $apiUsername
          * @param string $apiKey
-         * @param CardPayload $payload
+         * @param CardPayload $cardData
          *
          * @return mixed
          */
-        public function postCardTransaction($transactionAmount, $apiUsername, $apiKey, $payload)
+        public function postCardTransaction($transactionAmount, $apiUsername, $apiKey, $cardData)
         {
-            $headers = iTCore::generateHeaderArray($apiUsername, $apiKey, $payload);
 
-            $jsonData['amount'] = $transactionAmount;
-            $jsonData['card'] = $payload;
+            $payload['amount'] = $transactionAmount;
+            $payload['card'] = $cardData;
+
+            $headers = iTCore::generateHeaderArray($apiUsername, $apiKey, $payload);
 
             $ch = curl_init(iTCore::API_POST_TRANSACTIONS_URL);
             curl_setopt_array($ch, array(
                 CURLOPT_POST => TRUE,
                 CURLOPT_RETURNTRANSFER => TRUE,
                 CURLOPT_HTTPHEADER => $headers,
-                CURLOPT_POSTFIELDS => json_encode($jsonData)
+                CURLOPT_POSTFIELDS => json_encode($payload)
             ));
 
             $response = curl_exec($ch);

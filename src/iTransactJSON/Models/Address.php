@@ -19,8 +19,9 @@ namespace iTransact\iTransactSDK;
  */
 class Address
 {
-    /**
-     * @var
-     */
+    public $line1;
+    public $line2;
+    public $city;
+    public $state;
     public $postal_code;
 }

@@ -77,6 +77,8 @@ namespace iTransact\iTransactSDK {
             $payload['amount'] = $transactionAmount;
             $payload['card'] = $cardData;
 
+            // TODO - add optional zip code option.
+
             $headers = iTCore::generateHeaderArray($apiUsername, $apiKey, $payload);
 
             $ch = curl_init(iTCore::API_POST_TRANSACTIONS_URL);

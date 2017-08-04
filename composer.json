@@ -1,8 +1,8 @@
 {
-  "name": "itransact/itransact-sdk-php",
+  "name": "itransact/itransact-php",
   "type": "library",
   "keywords": ["itransact","payroc","payments","merchants","transaction","integration","credit card","check","ach"],
-  "homepage": "https://github.com/itransact/itransact_sdk-php",
+  "homepage": "https://github.com/itransact/itransact-php",
   "license": "MIT",
   "description": "This is an SDK for authenticating with iTransact's API",
   "authors": [

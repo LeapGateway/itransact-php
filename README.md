@@ -17,10 +17,10 @@ If there is a platform you would like to see in addition to composer for depende
 Run the following command at the root fo your project
 
 ```bash
-composer require itransact/itransact-sdk-php
+composer require itransact/itransact-php
 ```
 
-Packagist Link - [iTransact SDK on Composer](https://packagist.org/packages/itransact/itransact-sdk-php)
+Packagist Link - [iTransact SDK on Composer](https://packagist.org/packages/itransact/itransact-php)
 
 
 ### Manual Install

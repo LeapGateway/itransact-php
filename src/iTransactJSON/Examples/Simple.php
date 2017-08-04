@@ -21,7 +21,7 @@ $apiKey = 'InsertApiKeyHere';
 
 // Create new instances of the SDK, and if you would like you can also use the payload.
 $sdk = new iTTransaction();
-$payload = new CardPayload('Ol Greg',5454545454545454,123,12,2020);
+$payload = new CardPayload('Greg',5454545454545454,123,12,2020);
 $transactionAmount = 1234;
 
 

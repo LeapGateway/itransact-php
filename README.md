@@ -131,7 +131,7 @@ Example failed '$postResult' will return unathorized if $apiUsername or $apiKey 
 ```json
 {
   "error": [  
-    "message": "Unauthorized"
+    { "message": "Unauthorized" }
   ]
 }
 

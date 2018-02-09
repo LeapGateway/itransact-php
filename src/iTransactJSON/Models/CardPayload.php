@@ -25,6 +25,24 @@ class CardPayload
     public $exp_year;
 
     /**
+     * CardPayload constructor.
+     *
+     * @param $name
+     * @param $number
+     * @param $cvv
+     * @param $exp_month
+     * @param $exp_year
+     */
+    public function __construct($name, $number, $cvv, $exp_month, $exp_year)
+    {
+        $this->name = $name;
+        $this->number = $number;
+        $this->cvv = $cvv;
+        $this->exp_month = $exp_month;
+        $this->exp_year = $exp_year;
+    }
+
+    /**
      * @return mixed
      */
     public function getName()
@@ -104,20 +122,5 @@ class CardPayload
         $this->exp_year = $exp_year;
     }
 
-    /**
-     * iTCardTransactionPayload constructor.
-     * @param $name
-     * @param $number
-     * @param $cvv
-     * @param $exp_month
-     * @param $exp_year
-     */
-    public function __construct($name, $number, $cvv, $exp_month, $exp_year)
-    {
-        $this->name = $name;
-        $this->number = $number;
-        $this->cvv = $cvv;
-        $this->exp_month = $exp_month;
-        $this->exp_year = $exp_year;
-    }
+
 }

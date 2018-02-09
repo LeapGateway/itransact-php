@@ -13,22 +13,30 @@
 require_once ('../iTransactSDK.php');
 
 use iTransact\iTransactSDK\CardPayload;
+use iTransact\iTransactSDK\AddressPayload;
+use iTransact\iTransactSDK\TransactionPayload;
 use iTransact\iTransactSDK\iTTransaction;
 
 // Put these somewhere safe, like in an environment variable
 $apiUsername = 'InsertApiUsername';
 $apiKey = 'InsertApiKeyHere';
 
-// Create new instances of the SDK, and if you would like you can also use the payload.
+$card = new CardPayload('Greg',5454545454545454,123,12,2020);
+$address = new AddressPayload('', '', '', '', '84025'); // Address is optional unless you are using a Loopback / Sandbox / Demo account
+$payload = new TransactionPayload(1234, $card, $address);
 $sdk = new iTTransaction();
-$payload = new CardPayload('Greg',5454545454545454,123,12,2020);
-$transactionAmount = 1234;
 
 
-$signResult = $sdk->signPayload($transactionAmount, $payload);
-print "\nSigned payload result\n";
-var_dump($signResult);
-
-$postResult = $sdk->postCardTransaction($transactionAmount,$apiUsername,$apiKey,$payload);
+// Use the following to get payload signature, and submit the transaction.
+$postResult = $sdk->postCardTransaction($apiUsername, $apiKey, $payload);
 print "\n\nPosted payload result\n";
 var_dump($postResult);
+
+/**
+ * Other useful stuff
+ **/
+
+// To compare a payload HMAC string
+$signResult = $sdk->signPayload($apiKey, $payload);
+print "\nSigned payload result\n";
+var_dump($signResult);

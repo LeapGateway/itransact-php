@@ -42,19 +42,23 @@ $loader = require_once __DIR__ . '/vendor/autoload.php';
 ...
 
 # Now that its been automatically loaded, you can just call it inline or via use 
-use iTransact\iTransactSDK\iTTransaction;
+
 use iTransact\iTransactSDK\CardPayload;
+use iTransact\iTransactSDK\AddressPayload;
+use iTransact\iTransactSDK\TransactionPayload;
+use iTransact\iTransactSDK\iTTransaction;
 
 class Foo(){
     private function Bar(){                
         // Put these somewhere safe, like in an environment variable
         $apiUsername = 'InsertApiUsername';
         $apiKey = 'InsertApiKeyHere';
-        
+
         // Create new instances of the SDK, and if you would like you can also use the payload.
+        $card = new CardPayload('Greg',5454545454545454,123,12,2020);
+        $address = new AddressPayload('', '', '', '', '84025'); // Address is optional unless you are using a Loopback / Sandbox / Demo account
+        $payload = new TransactionPayload(1234, $card, $address); // Amount, CardPayload, AddressPayload 
         $sdk = new iTTransaction();
-        $payload = new CardPayload('Greg','4111111111111111','123','11','2020');
-        $transactionAmount = 1234;
         
         // POST request to server
         $postResult = $sdk->postCardTransaction($transactionAmount,$apiUsername,$apiKey,$payload);
@@ -67,6 +71,8 @@ class Foo(){
 require_once('./iTransactSDK.php');
 
 use iTransact\iTransactSDK\CardPayload;
+use iTransact\iTransactSDK\AddressPayload;
+use iTransact\iTransactSDK\TransactionPayload;
 use iTransact\iTransactSDK\iTTransaction;
 
 class Foo(){
@@ -76,9 +82,10 @@ class Foo(){
         $apiKey = 'InsertApiKeyHere';
         
         // Create new instances of the SDK, and if you would like you can also use the payload.
+        $card = new CardPayload('Greg',5454545454545454,123,12,2020);
+        $address = new AddressPayload('', '', '', '', '84025'); // Address is optional unless you are using a Loopback / Sandbox / Demo account
+        $payload = new TransactionPayload(1234, $card, $address); // Amount, CardPayload, AddressPayload 
         $sdk = new iTTransaction();
-        $payload = new CardPayload('Greg','4111111111111111','123','11','2020');
-        $transactionAmount = 1234;
         
         // POST request to server
         $postResult = $sdk->postCardTransaction($transactionAmount,$apiUsername,$apiKey,$payload);
@@ -118,6 +125,16 @@ Example successful `$postResult` will return a 201 with the following fields / v
   },
   "credited_amount": "string"
 }
+```
+
+Example failed '$postResult' will return unathorized if $apiUsername or $apiKey don't exist on your iTransact account 
+```json
+{
+  "error": [  
+    "message": "Unauthorized"
+  ]
+}
+
 ```
 
 Check out the files in `src/iTransactJSON/Examples` for other ideas for implementation.

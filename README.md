@@ -1,5 +1,7 @@
 # iTransact SDK for PHP
 
+[![Join the chat at https://gitter.im/itransact/itransact-php](https://badges.gitter.im/itransact/itransact-php.svg)](https://gitter.im/itransact/itransact-php?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 As a quick helper for our PHP community to get up and running even faster in your favorite dependency manager, we have created this API / SDK wrapper specifically tailored for PHP. 
 
 More details at [iTransact Developer API](http://developers.itransact.com/api-reference/#operation/postTransactions)

@@ -59,7 +59,9 @@ class Foo(){
         // Create new instances of the SDK, and if you would like you can also use the payload.
         $card = new CardPayload('Greg',5454545454545454,123,12,2020);
         $address = new AddressPayload('', '', '', '', '84025'); // Address is optional unless you are using a Loopback / Sandbox / Demo account
-        $payload = new TransactionPayload(1234, $card, $address); // Amount, CardPayload, AddressPayload 
+        $payload = new TransactionPayload(1234, $card, $address); // Amount, CardPayload, AddressPayload
+        $payload->addMetadata('email', 'example@itransact.com'); // Optional
+        $payload->setSendCustomerReceipt(true); // Optional - default: false 
         $sdk = new iTTransaction();
         
         // POST request to server
@@ -86,7 +88,9 @@ class Foo(){
         // Create new instances of the SDK, and if you would like you can also use the payload.
         $card = new CardPayload('Greg',5454545454545454,123,12,2020);
         $address = new AddressPayload('', '', '', '', '84025'); // Address is optional unless you are using a Loopback / Sandbox / Demo account
-        $payload = new TransactionPayload(1234, $card, $address); // Amount, CardPayload, AddressPayload 
+        $payload = new TransactionPayload(1234, $card, $address); // Amount, CardPayload, AddressPayload
+        $payload->addMetadata('email', 'example@itransact.com'); // Optional
+        $payload->setSendCustomerReceipt(true); // Optional - default: false 
         $sdk = new iTTransaction();
         
         // POST request to server

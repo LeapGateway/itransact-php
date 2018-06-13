@@ -99,7 +99,7 @@ namespace iTransact\iTransactSDK {
     }
 
     /**
-     * Publicly availiable
+     * Publicly available
      *
      * Class iTTransaction
      * @package iTransact\iTransactSDK

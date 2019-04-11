@@ -7,7 +7,7 @@ As a quick helper for our PHP community to get up and running even faster in you
 More details at [iTransact Developer API](http://developers.itransact.com/api-reference/#operation/postTransactions)
 
 ## Features
-- [PHP](http://php.net/downloads.php) >= 5.1.2
+- [PHP](http://php.net/downloads.php) ^ 6.0
 - [cURL](http://php.net/manual/en/function.curl-exec.php)
 - [Composer](https://getcomposer.org/download/) (optional)
 - [PHPUnit]() (optional)

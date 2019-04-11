@@ -8,8 +8,8 @@
   "authors": [
     {
       "name": "Preston Farr",
-      "email": "p.farr@itransact.com",
-      "homepage": "https://www.itransact.com",
+      "email": "preston.farr@payroc.com",
+      "homepage": "https://www.payroc.com",
       "role": "Developer"
     },
     {
@@ -20,16 +20,12 @@
     }
   ],
   "support": {
-    "email": "tix@itransact.com"
+    "email": "support@payroc.com"
   },
-  "feature-branches": [
-    "master",
-    "develop"
-  ],
   "require": {
     "php": ">=5.3.0",
     "lib/curl": "0.2",
-    "phpunit/phpunit": "4.8.36"
+    "phpunit/phpunit": ">=6.0"
   },
   "autoload": {
     "psr-4": {

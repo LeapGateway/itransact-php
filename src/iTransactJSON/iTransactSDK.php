@@ -14,7 +14,7 @@ namespace iTransact\iTransactSDK {
     use iTransact\iTransactSDK\TransactionPayload;
 
     /**
-     * Class iTCore - does the majority of the work behind the scenes.
+     * Class iTransactSDK - does the majority of the work behind the scenes.
      *
      *
      * @package iTransact\iTransactSDK
@@ -25,7 +25,7 @@ namespace iTransact\iTransactSDK {
      *
      * $trans::postCardTransaction($username, $somekey, $payload);
      */
-    class iTCore
+    class iTransactSDK
     {
         /**
          *
@@ -120,9 +120,9 @@ namespace iTransact\iTransactSDK {
          */
         public function postCardTransaction($apiUsername, $apiKey, $payload)
         {
-            $headers = iTCore::generateHeaderArray($apiUsername, $apiKey, $payload);
+            $headers = iTransactSDK::generateHeaderArray($apiUsername, $apiKey, $payload);
 
-            $ch = curl_init(iTCore::API_POST_TRANSACTIONS_URL());
+            $ch = curl_init(iTransactSDK::API_POST_TRANSACTIONS_URL());
             curl_setopt_array($ch, array(
                 CURLOPT_POST => TRUE,
                 CURLOPT_RETURNTRANSFER => TRUE,
@@ -153,7 +153,7 @@ namespace iTransact\iTransactSDK {
          */
         public function signPayload($apikey, $payload)
         {
-            return iTCore::signPayload($apikey, $payload);
+            return iTransactSDK::signPayload($apikey, $payload);
         }
 
         // TODO - add other SDK methods for ACH, etc.
